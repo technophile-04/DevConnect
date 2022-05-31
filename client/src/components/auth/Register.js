@@ -110,7 +110,14 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       </form>
 
       <p className="my-1" style={{ color: "white" }}>
-        Already Have an Account? <Link to="/login">Sign In</Link>
+        Already Have an Account?{" "}
+        <Link
+          className="btn btn-primary"
+          style={{ color: "white" }}
+          to="/login"
+        >
+          Sign In
+        </Link>
       </p>
     </section>
   );

@@ -1,20 +1,20 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-import { addExperience } from '../../actions/profile';
+import { addExperience } from "../../actions/profile";
 
 const AddExperience = ({ addExperience }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    company: '',
-    title: '',
-    location: '',
-    from: '',
-    to: '',
+    company: "",
+    title: "",
+    location: "",
+    from: "",
+    to: "",
     current: false,
-    description: '',
+    description: "",
   });
 
   const { company, title, location, from, to, current, description } = formData;
@@ -35,98 +35,100 @@ const AddExperience = ({ addExperience }) => {
   };
 
   return (
-    <section className='container'>
-      <h1 className='large text-primary'>Add An Experience</h1>
+    <section className="container" style={{ color: "white" }}>
+      <h1 className="large text-primary" style={{ color: "white" }}>
+        Add An Experience
+      </h1>
 
-      <p className='lead'>
-        <i className='fas fa-code'></i> Add any developer/programming positions
-        that you have had in the past
+      <p className="lead" style={{ color: "white" }}>
+        <i style={{ color: "black" }} className="fas fa-code"></i> Add any
+        developer/programming positions that you have had in the past
       </p>
 
-      <small>* = required field</small>
+      <small style={{ color: "white" }}>* = required field</small>
 
-      <form className='form' onSubmit={handleOnSubmit}>
-        <div className='form-group'>
+      <form className="form" onSubmit={handleOnSubmit}>
+        <div className="form-group">
           <input
-            type='text'
-            placeholder='* Job Title'
-            name='title'
+            type="text"
+            placeholder="* Job Title"
+            name="title"
             value={title}
             onChange={handleOnChange}
             required
           />
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <input
-            type='text'
-            placeholder='* Company'
-            name='company'
+            type="text"
+            placeholder="* Company"
+            name="company"
             value={company}
             onChange={handleOnChange}
             required
           />
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <input
-            type='text'
-            placeholder='Location'
+            type="text"
+            placeholder="Location"
             value={location}
             onChange={handleOnChange}
-            name='location'
+            name="location"
           />
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <h4>From Date</h4>
           <input
-            type='date'
-            name='from'
+            type="date"
+            name="from"
             value={from}
             onChange={handleOnChange}
           />
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <p>
             <input
-              type='checkbox'
-              name='current'
+              type="checkbox"
+              name="current"
               value={current}
               checked={current}
               onChange={handleCheckboxOnChange}
-            />{' '}
+            />{" "}
             Current Job
           </p>
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <h4>To Date</h4>
 
           <input
-            type='date'
-            name='to'
+            type="date"
+            name="to"
             value={to}
             onChange={handleOnChange}
             disabled={current}
           />
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <textarea
-            name='description'
-            cols='30'
-            rows='5'
-            placeholder='Job Description'
+            name="description"
+            cols="30"
+            rows="5"
+            placeholder="Job Description"
             value={description}
             onChange={handleOnChange}
           />
         </div>
 
-        <input type='submit' className='btn btn-primary my-1' />
+        <input type="submit" className="btn btn-dark my-1" />
 
-        <Link className='btn my-1' to='/dashboard'>
+        <Link className="btn my-1" to="/dashboard">
           Go Back
         </Link>
       </form>

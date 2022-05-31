@@ -30,7 +30,7 @@ export const register =
 		const body = { name, email, githubusername, password };
 
 		try {
-			const res = await api.post('http://localhost:8080/api/users', body);
+			const res = await api.post(`${BASE_URL}/api/users`, body);
 
 			dispatch({
 				type: REGISTER_SUCCESS,
@@ -52,7 +52,7 @@ export const login = (email, password) => async (dispatch) => {
 	const body = { email, password };
 
 	try {
-		const res = await api.post('http://localhost:8080/api/auth', body);
+		const res = await api.post(`${BASE_URL}/api/auth`, body);
 
 		dispatch({
 			type: LOGIN_SUCCESS,

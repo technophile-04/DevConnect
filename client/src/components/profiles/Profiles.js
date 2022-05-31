@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useEffect } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-import Spinner from '../layout/Spinner';
-import { getProfiles } from '../../actions/profile';
-import ProfileItem from './ProfileItem';
+import Spinner from "../layout/Spinner";
+import { getProfiles } from "../../actions/profile";
+import ProfileItem from "./ProfileItem";
 
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   useEffect(() => {
@@ -12,19 +12,21 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   }, [getProfiles]);
 
   return (
-    <section className='container'>
+    <section className="container">
       {loading ? (
         <Spinner />
       ) : (
         <>
-          <h1 className='large text-primary'>Developers</h1>
+          <h1 className="large text-primary" style={{ color: "white" }}>
+            Developers
+          </h1>
 
-          <p className='lead'>
-            <i className='fas fa-laptop-code'></i> Browse and Connect with
+          <p className="lead" style={{ color: "white" }}>
+            <i className="fas fa-laptop-code"></i> Browse and Connect with
             Developers
           </p>
 
-          <div className='profiles'>
+          <div className="profiles">
             {profiles.length > 0 ? (
               profiles.map((profile) => (
                 <ProfileItem key={profile._id} profile={profile} />

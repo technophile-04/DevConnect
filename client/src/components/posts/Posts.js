@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useEffect } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-import { getPosts } from '../../actions/post';
-import PostItem from './PostItem';
-import PostForm from './PostForm';
+import { getPosts } from "../../actions/post";
+import PostItem from "./PostItem";
+import PostForm from "./PostForm";
 
 const Posts = ({ getPosts, post: { posts } }) => {
   useEffect(() => {
@@ -12,16 +12,19 @@ const Posts = ({ getPosts, post: { posts } }) => {
   }, [getPosts]);
 
   return (
-    <section className='container'>
-      <h1 className='large text-primary'>Posts</h1>
+    <section className="container">
+      <h1 className="large text-primary" style={{ color: "white" }}>
+        Posts
+      </h1>
 
-      <p className='lead'>
-        <i className='fas fa-heart'></i> Welcome to the Developer Community
+      <p className="lead" style={{ color: "white" }}>
+        <i className="fas fa-heart" style={{ color: "red" }}></i> Welcome to the
+        Developer Community
       </p>
 
       <PostForm />
 
-      <div className='posts'>
+      <div className="posts">
         {posts.map((post) => (
           <PostItem key={post._id} post={post} />
         ))}

@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import { login } from '../../actions/auth';
+import { login } from "../../actions/auth";
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const { email, password } = formData;
@@ -24,46 +24,52 @@ const Login = ({ login, isAuthenticated }) => {
 
   // Redirect Logged in User
   if (isAuthenticated) {
-    return <Navigate to='/dashboard' />;
+    return <Navigate to="/dashboard" />;
   }
 
   return (
-    <section className='container'>
-      <h1 className='large text-primary'>Sign In</h1>
+    <section className="container">
+      <h1 className="large text-primary" style={{ color: "white" }}>
+        Sign In
+      </h1>
 
-      <p className='lead'>
-        <i className='fas fa-user-ninja'></i> Sign Into Your Account
+      <p className="lead" style={{ color: "white" }}>
+        <i className="fas fa-user-ninja" style={{ color: "black" }}></i> Sign
+        Into Your Account
       </p>
 
-      <form className='form' onSubmit={handleOnSubmit}>
-        <div className='form-group'>
+      <form className="form" onSubmit={handleOnSubmit}>
+        <div className="form-group">
           <input
-            type='email'
-            placeholder='Email Address'
-            name='email'
+            type="email"
+            placeholder="Email Address"
+            name="email"
             value={email}
             onChange={handleOnChange}
             required
           />
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <input
-            type='password'
-            placeholder='Password'
-            minLength='6'
-            name='password'
+            type="password"
+            placeholder="Password"
+            minLength="6"
+            name="password"
             value={password}
             onChange={handleOnChange}
             required
           />
         </div>
 
-        <input type='submit' value='Login' className='btn btn-primary' />
+        <input type="submit" value="Login" className="btn btn-primary" />
       </form>
 
-      <p className='my-1'>
-        Don't Have an Account? <Link to='/register'>Sign Up</Link>
+      <p className="my-1" style={{ color: "white" }}>
+        Don't Have an Account?{" "}
+        <Link to="/register" style={{ color: "white" }}>
+          Sign Up
+        </Link>
       </p>
     </section>
   );

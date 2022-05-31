@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import { setAlert } from '../../actions/alert';
-import { register } from '../../actions/auth';
+import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    githubusername: '',
-    password: '',
-    password2: '',
+    name: "",
+    email: "",
+    githubusername: "",
+    password: "",
+    password2: "",
   });
 
   const { name, email, githubusername, password, password2 } = formData;
@@ -24,7 +24,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     e.preventDefault();
 
     if (password !== password2) {
-      setAlert('Passwords do not match', 'danger');
+      setAlert("Passwords do not match", "danger");
     } else {
       await register({ name, email, githubusername, password });
     }
@@ -32,83 +32,85 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   // Redirect User after Registeration
   if (isAuthenticated) {
-    return <Navigate to='/dashboard' />;
+    return <Navigate to="/dashboard" />;
   }
 
   return (
-    <section className='container'>
-      <h1 className='large text-primary'>Sign Up</h1>
+    <section className="container" style={{ minHeight: "83vh" }}>
+      <h1 className="large text-primary" style={{ color: "white" }}>
+        Sign Up
+      </h1>
 
-      <p className='lead'>
-        <i className='fas fa-user-ninja'></i> Create Your Account
+      <p className="lead" style={{ color: "white" }}>
+        <i className="fas fa-user-ninja"></i> Create Your Account
       </p>
 
-      <form className='form' onSubmit={handleOnSubmit}>
-        <div className='form-group'>
+      <form className="form" onSubmit={handleOnSubmit}>
+        <div className="form-group">
           <input
-            type='text'
-            placeholder='Name'
-            name='name'
+            type="text"
+            placeholder="Name"
+            name="name"
             value={name}
             onChange={handleOnChange}
             required
           />
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <input
-            type='email'
-            placeholder='Email Address'
-            name='email'
+            type="email"
+            placeholder="Email Address"
+            name="email"
             value={email}
             onChange={handleOnChange}
             required
           />
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <input
-            type='text'
-            placeholder='Github Username (Optional)'
-            name='githubusername'
+            type="text"
+            placeholder="Github Username (Optional)"
+            name="githubusername"
             value={githubusername}
             onChange={handleOnChange}
           />
 
-          <small className='form-text'>
+          <small className="form-text" style={{ color: "white" }}>
             Enter yout Github username for a DP eg.Mugilan-Codes
           </small>
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <input
-            type='password'
-            placeholder='Password'
-            minLength='6'
-            name='password'
+            type="password"
+            placeholder="Password"
+            minLength="6"
+            name="password"
             value={password}
             onChange={handleOnChange}
             required
           />
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <input
-            type='password'
-            placeholder='Confirm Password'
-            minLength='6'
-            name='password2'
+            type="password"
+            placeholder="Confirm Password"
+            minLength="6"
+            name="password2"
             value={password2}
             onChange={handleOnChange}
             required
           />
         </div>
 
-        <input type='submit' value='Register' className='btn btn-primary' />
+        <input type="submit" value="Register" className="btn btn-primary" />
       </form>
 
-      <p className='my-1'>
-        Already Have an Account? <Link to='/login'>Sign In</Link>
+      <p className="my-1" style={{ color: "white" }}>
+        Already Have an Account? <Link to="/login">Sign In</Link>
       </p>
     </section>
   );
